@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+
+    height: 100vh;
+    background: linear-gradient(to top, red, aqua 80%);
+
+}
+
+.container {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+
+}
+
+.fan {
+    position: relative;
+
+}
+
+.fan::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: radial-gradient(#4380e7, #063d5f);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 10px solid #2362d7;
+    transform: translate(-50%, -50%);
+
+
+}
+
+.blade {
+    position: absolute;
+    background-color: orange;
+    width: 70px;
+    height: 170px;
+    border-radius: 54% 46% 100% 0%/ 36% 31% 69% 64%;
+
+}
+
+.blade1 {
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-18deg);
+    background: linear-gradient(to bottom right, black 49%, #00cc66 51%);
+
+}
+
+.blade2 {
+    top: 25px;
+    left: 51%;
+    transform: translateX(-50%) rotate(-200deg);
+    background: linear-gradient(to bottom left, #ff99cc 49%, #00ffff 51%);
+
+}
+
+.blade3 {
+    top: 50%;
+    right: -5px;
+    transform: translate(-100%, -50%) rotate(-110deg);
+    background: linear-gradient(to bottom right, #ff0000 49%, #00ff00 51%);
+
+}
+
+.blade4 {
+    top: 50%;
+    left: -5px;
+    transform: translate(100%, -50%)rotate(65deg);
+    background: linear-gradient(to top left, #4dff00 50%, #00ff99 51%);
+
+}
+
+.stand {
+    background-color: #00ff00;
+    width: 20px;
+    height: 250px;
+    position: absolute;
+    margin-top: 300px;
+   
+    z-index: -1;
+}
+
+.stand::after {
+    content: "";
+    width: 160px;
+    height: 30px;
+    background-color: #00ff99;
+    bottom: 0;
+    position: absolute;
+    left: -70px;
+    border-radius: 10px 10px 0 0;
+}
+
+.checker {
+    position: absolute;
+    bottom: -45px;
+    left: 140px;
+    appearance: none;
+    background-color: chartreuse;
+    width: 20px;
+    height: 10px;
+    border-radius: 10px 10px 0 0;
+
+}
+
+.checker:checked {
+    height: 5px !important;
+
+}
+
+.checker:checked~.fan {
+    animation: swing 0.1s linear infinite;
+}
+
+@keyframes swing {
+    to {
+        transform: rotate(360deg);
+    }
+}
